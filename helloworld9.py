@@ -10,13 +10,16 @@ ship_filename = 'ship.png'
 ship = pygame.image.load(ship_filename).convert_alpha()
 pygame.display.set_caption('Hello World')
 running = True
-
+ship_position = [0, 0]
+speed = (3, 2)
 clock = pygame.time.Clock()
 while running:
     
     screen.blit(pygame.Surface(screen.get_size()), (0, 0))
     screen.blit(background, (0, 0))
-    screen.blit(ship, (300, 200))
+    ship_position[0] += speed[0]
+    ship_position[1] += speed[1]
+    screen.blit(ship, ship_position)
     pygame.display.update()
     
     for event in pygame.event.get():

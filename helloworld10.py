@@ -10,15 +10,29 @@ ship_filename = 'ship.png'
 ship = pygame.image.load(ship_filename).convert_alpha()
 pygame.display.set_caption('Hello World')
 running = True
-
+ship_position = [0, 0]
+speed = {'x': 0, 'y': 0}
 clock = pygame.time.Clock()
 while running:
     
     screen.blit(pygame.Surface(screen.get_size()), (0, 0))
     screen.blit(background, (0, 0))
-    screen.blit(ship, (300, 200))
+    ship_position[0] += speed['x']
+    ship_position[1] += speed['y']
+    screen.blit(ship, ship_position)
     pygame.display.update()
     
+    pressed_keys = pygame.key.get_pressed()
+
+    if pressed_keys[K_UP]:
+        speed['y'] = -5
+    elif pressed_keys[K_DOWN]:
+        speed['y'] = 5
+    if pressed_keys[K_LEFT]:
+        speed['x'] = -5
+    elif pressed_keys[K_RIGHT]:
+        speed['x'] = 5
+
     for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()

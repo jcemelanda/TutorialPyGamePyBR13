@@ -35,6 +35,9 @@ Uma vez ativado o ambiente virtual, instale o pygame e o jupyter
 ```
 pip3 install pygame jupyter
 ```
+
+Para mais informações sobre venv, cheque [aqui](https://docs.python.org/3/library/venv.html).
+
 ## Acessando o notebook
 
 Agora, abra uma nova janela no terminal/CLI e abra o notebook usando
